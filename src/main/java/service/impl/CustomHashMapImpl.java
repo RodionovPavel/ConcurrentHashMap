@@ -102,10 +102,10 @@ public class CustomHashMapImpl<K, V> implements CustomHashMap<K, V> {
 
     @Override
     public V get(K key) {
-        int index = indexOfBucket(HashUtils.createHash(key), arrayLength);
 
         readWriteLock.readLock().lock();
         try {
+            int index = indexOfBucket(HashUtils.createHash(key), arrayLength);
             if (buckets[index] != null) {
                 CustomNode<K, V> temp = buckets[index];
 
@@ -115,19 +115,19 @@ public class CustomHashMapImpl<K, V> implements CustomHashMap<K, V> {
                     }
                 }
             }
+            return null;
         } finally {
             readWriteLock.readLock().unlock();
         }
-
-        return null;
     }
 
     @Override
     public boolean containsKey(K key) {
-        int index = indexOfBucket(HashUtils.createHash(key), DEFAULT_CAPACITY);
 
         readWriteLock.readLock().lock();
         try {
+            int index = indexOfBucket(HashUtils.createHash(key), DEFAULT_CAPACITY);
+
             if (buckets[index] != null) {
                 CustomNode<K, V> temp = buckets[index];
 
@@ -137,11 +137,11 @@ public class CustomHashMapImpl<K, V> implements CustomHashMap<K, V> {
                     }
                 }
             }
+            return false;
+
         } finally {
             readWriteLock.readLock().unlock();
         }
-
-        return false;
     }
 
     @Override
