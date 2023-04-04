@@ -18,15 +18,17 @@ public class TestCustomHashMapImplUtils {
 
     @BeforeEach
     public void init() {
-        customHashMap.put("Hi1", 3);
-        customHashMap.put("Hi2", 6);
-        customHashMap.put("Hi3", 7);
-        customHashMap.put("Hi4", 8);
-        customHashMap.put("Hi5", 9);
-        customHashMap.put("Hi6", 10);
-        customHashMap.put("Hi7", 11);
-        customHashMap.put("Hi8", 6);
-        customHashMap.put("Hi9", 7);
+        customHashMap.put("Key1", 1);
+        customHashMap.put("Key2", 2);
+        customHashMap.put("Key3", 3);
+        customHashMap.put("Key4", 4);
+        customHashMap.put("Key5", 5);
+        customHashMap.put("Key6", 6);
+        customHashMap.put("Key7", 7);
+        customHashMap.put("Key8", 8);
+        customHashMap.put("Key9", 9);
+        customHashMap.put("Key10", 10);
+
     }
 
     @AfterEach
@@ -36,8 +38,8 @@ public class TestCustomHashMapImplUtils {
 
     @Test
     public void put() {
-        customHashMap.put("D", 3);
-        assertEquals(3, customHashMap.get("D"));
+        customHashMap.put("newKey", 1);
+        assertEquals(1, customHashMap.get("newKey"));
     }
 
     @Test
@@ -70,7 +72,7 @@ public class TestCustomHashMapImplUtils {
 
     @Test
     public void size() {
-        assertEquals(9, customHashMap.size());
+        assertEquals(10, customHashMap.size());
     }
 
     @Test
@@ -89,6 +91,6 @@ public class TestCustomHashMapImplUtils {
             customHashMap.remove(String.valueOf(i));
         });
 
-        assertEquals(9, customHashMap.size());
+        assertEquals(10, customHashMap.size());
     }
 }
